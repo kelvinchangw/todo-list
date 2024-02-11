@@ -1,0 +1,14 @@
+/* Import font */
+@import url("./assets/fonts/plus-jakarta-sans/stylesheet.css");
+
+:root {
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-feature-settings: "ss01", "ss03";
+}
