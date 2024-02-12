@@ -2,7 +2,16 @@
 @import url("./assets/fonts/plus-jakarta-sans/stylesheet.css");
 
 :root {
+    --header-background-clr: #907AD6;
+    --body-background-clr: #2C302E;
+    --sidebar-background-clr: #393E3A;
+    --create-project-background-clr: #515953;
 
+    --text-clr: #F1E9DB;
+
+    --small-font: 1.4rem;
+    --medium-font: 2rem;
+    --large-font: 3rem;
 }
 
 * {
@@ -11,4 +20,104 @@
     box-sizing: border-box;
     font-family: "Plus Jakarta Sans", sans-serif;
     font-feature-settings: "ss01", "ss03";
+
+    /* Test */
+    color: var(--text-clr);
+}
+
+/* Tag elements */
+header {
+    background-color: var(--header-background-clr);
+    padding: 3rem 6rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+body {
+    flex-direction: column;
+    height: 100vh;
+    background-color: var(--body-background-clr);
+}
+
+hr {
+    background-color: var(--text-clr);
+    filter: brightness(40%);
+    height: 0.2rem;
+    border: none;
+    z-index: 0;
+}
+
+/* Shared Styles */
+body,
+.container {
+    display: flex;
+}
+
+.view-container > .container,
+.project-container > .container {
+    justify-content: space-between;
+}
+
+.view-container,
+.project-container {
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Specific Component Styles */
+.title {
+    font-size: var(--large-font);
+    align-items: center;
+    height: 5rem;
+}
+
+.main-content-container {
+    flex-direction: row;
+    height: 100%;
+}
+
+.sidebar-container {
+    flex-direction: column;
+    background-color: var(--sidebar-background-clr);
+    width: clamp(30rem, 34rem, 36rem);
+    height: 100%;
+}
+
+.sidebar-container > .container {
+    font-size: var(--small-font);
+}
+
+.view-container {
+    padding: 2rem calc(6rem + 4px) 2rem 6rem;
+}
+
+.project-container {
+    flex-grow: 1;
+    overflow-y: auto;
+    /* Removing height breaks the scroll */
+    height: 1rem;
+    padding: 2rem 6rem;
+    scrollbar-gutter: stable;
+}
+
+.common-create-container {
+    background-color: var(--create-project-background-clr);
+    align-items: center;
+    position: sticky;
+    height: 5rem;
+    width: 100%;
+    bottom: 0;
+    padding: 1rem 6rem;
+    z-index: 1000;
+    font-size: var(--small-font);
+}
+
+::-webkit-scrollbar {
+    width: 4px; /* Vertical scrollbar width */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: white; /* Color of the draggable scroll handle */
+    border-radius: 4px; /* Radius of the draggable scroll handle */
 }
